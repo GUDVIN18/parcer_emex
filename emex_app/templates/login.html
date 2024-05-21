@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autostructure Parsing System</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        .title {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"], input[type="password"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+        button {
+            width: 320px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'static_photo/Автоструктура_Logo-02.png' %}" alt="Лого">
+        </div>
+        <div class="title">Autostructure</div>
+        <div class="subtitle">Parsing System</div>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Login" required>
+            <input type="password" name="password" placeholder="Pass" required>
+            <!-- <div class="checkbox-container">
+                <input type="checkbox" name="stay_logged_in">
+                <label for="stay_logged_in">Stay logged in</label>
+            </div> -->
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
